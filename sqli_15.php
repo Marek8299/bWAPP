@@ -43,7 +43,7 @@ function sqli($data)
 
         case "2" :
 
-            $data = sqli_check_2($data);
+            $data = sqli_check_3($link, $data);
             break;
 
         default :
@@ -64,12 +64,12 @@ if(isset($_REQUEST["title"]))
 
     $sql = "SELECT * FROM movies WHERE title = '" . sqli($title) . "'";
 
-    $recordset = mysql_query($sql, $link);
+    $recordset = mysqli_query($sql, $link);
 
-    if($recordset and mysql_num_rows($recordset) != 0)
+    if($recordset and mysqli_num_rows($recordset) != 0)
     {
 
-        $row = mysql_fetch_array($recordset);
+        $row = mysqli_fetch_array($recordset);
 
         $movie = $row["title"];
 
@@ -77,9 +77,9 @@ if(isset($_REQUEST["title"]))
 
         $sql = "SELECT email FROM users WHERE login = '" . $login . "'";
 
-        $recordset = mysql_query($sql, $link);
+        $recordset = mysqli_query($sql, $link);
 
-        $row = mysql_fetch_array($recordset);
+        $row = mysqli_fetch_array($recordset);
 
         $email = $row["email"];
 
@@ -102,7 +102,7 @@ if(isset($_REQUEST["title"]))
 
     }
 
-    mysql_close($link);
+    mysqli_close($link);
 
 }
 

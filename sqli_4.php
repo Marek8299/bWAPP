@@ -40,7 +40,7 @@ function sqli($data)
 
         case "2" :
 
-            $data = sqli_check_2($data);
+            $data = sqli_check_3($link, $data);
             break;
 
         default :
@@ -130,17 +130,17 @@ function sqli($data)
 
         $sql = "SELECT * FROM movies WHERE title = '" . sqli($title) . "'";
 
-        $recordset = mysql_query($sql, $link);
+        $recordset = mysqli_query($sql, $link);
 
         if(!$recordset)
         {
 
             die("<font color=\"red\">Incorrect syntax detected!</font>");
-            // die("Error: " . mysql_error());
+            // die("Error: " . mysqli_error());
 
         }
 
-        if(mysql_num_rows($recordset) != 0)
+        if(mysqli_num_rows($recordset) != 0)
         {
 
             echo "The movie exists in our database!";
@@ -154,7 +154,7 @@ function sqli($data)
 
         }
 
-        mysql_close($link);
+        mysqli_close($link);
 
     }
 

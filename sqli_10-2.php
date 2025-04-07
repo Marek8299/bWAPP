@@ -42,7 +42,7 @@ function sqli($data)
 
         case "2" :
 
-            $data = sqli_check_2($data);
+            $data = sqli_check_3($link, $data);
             break;
 
         default :
@@ -64,13 +64,13 @@ if(!empty($_GET["title"]))
     $sql = "SELECT * FROM movies WHERE title LIKE '%" . sqli($title) . "%'";
 
     // Queries the database
-    $recordset = mysql_query($sql, $link);
+    $recordset = mysqli_query($sql, $link);
 
     // Fetches the result
-    if(mysql_num_rows($recordset) != 0)
+    if(mysqli_num_rows($recordset) != 0)
     {
 
-        while($row = mysql_fetch_array($recordset))
+        while($row = mysqli_fetch_array($recordset))
         {
 
             $movies[] = $row;

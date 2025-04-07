@@ -42,7 +42,7 @@ function sqli($data)
 
         case "2" :
 
-            $data = sqli_check_2($data);
+            $data = sqli_check_3($link, $data);
             break;
 
         default :
@@ -141,19 +141,19 @@ function sqli($data)
 
         // echo $sql;
 
-        $recordset = mysql_query($sql, $link);
+        $recordset = mysqli_query($sql, $link);
 
         if(!$recordset)
         {
 
-            die("Error: " . mysql_error());
+            die("Error: " . mysqli_error());
 
         }
 
         else
         {
 
-            $row = mysql_fetch_array($recordset);
+            $row = mysqli_fetch_array($recordset);
 
             if($row["login"])
             {
@@ -173,7 +173,7 @@ function sqli($data)
 
         }
 
-        mysql_close($link);
+        mysqli_close($link);
 
     }
 

@@ -40,7 +40,7 @@ function sqli($data)
         
         case "2" :            
                        
-            $data = sqli_check_2($data);            
+            $data = sqli_check_3($link, $data);            
             break;
         
         default : 
@@ -120,10 +120,10 @@ function sqli($data)
             // Selects all the records
             $sql = "SELECT * FROM movies";
 
-            $recordset = mysql_query($sql, $link);
+            $recordset = mysqli_query($sql, $link);
 
             // Fills the 'select' object
-            while($row = mysql_fetch_array($recordset))
+            while($row = mysqli_fetch_array($recordset))
             {
 
 ?>
@@ -132,7 +132,7 @@ function sqli($data)
 
             }
 
-            mysql_close($link);
+            mysqli_close($link);
 
 ?>
 

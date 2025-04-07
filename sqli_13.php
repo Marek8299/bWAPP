@@ -34,7 +34,7 @@ if($_COOKIE["security_level"] == "2")
 // Selects all the records
 $sql = "SELECT * FROM movies";
 
-$recordset = mysql_query($sql, $link);  
+$recordset = mysqli_query($sql, $link);  
 
 function sqli($data)
 {
@@ -49,7 +49,7 @@ function sqli($data)
         
         case "1" :
             
-            $data = sqli_check_2($data);
+            $data = sqli_check_3($link, $data);
             break;
         
         default : 
@@ -127,7 +127,7 @@ function sqli($data)
 <?php
 
             // Fills the 'select' object
-            while($row = mysql_fetch_array($recordset))
+            while($row = mysqli_fetch_array($recordset))
             {
 
 ?>
@@ -174,18 +174,18 @@ if(isset($_POST["movie"]))
 
     }
 
-    $recordset = mysql_query($sql, $link);
+    $recordset = mysqli_query($sql, $link);
 
     if(!$recordset)
     {
 
-        // die("Error: " . mysql_error());
+        // die("Error: " . mysqli_error());
 
 ?>
 
         <tr height="50">
 
-            <td colspan="5" width="580"><?php die("Error: " . mysql_error()); ?></td>
+            <td colspan="5" width="580"><?php die("Error: " . mysqli_error()); ?></td>
             <!--
             <td></td>
             <td></td>
@@ -199,10 +199,10 @@ if(isset($_POST["movie"]))
     }
 
     // Shows the movie details when a valid record exists
-    if(mysql_num_rows($recordset) != 0)
+    if(mysqli_num_rows($recordset) != 0)
     {    
 
-        $row = mysql_fetch_array($recordset);        
+        $row = mysqli_fetch_array($recordset);        
 
         // print_r($row);
 
@@ -263,7 +263,7 @@ else
 
 }
 
-mysql_close($link);
+mysqli_close($link);
 
 ?>
 

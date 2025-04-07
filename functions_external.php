@@ -208,13 +208,6 @@ function sqli_check_1($data)
     
 }
 
-function sqli_check_2($data)
-{
-   
-    return mysql_real_escape_string($data);
-    
-}
-
 function sqli_check_3($link, $data)
 {
    

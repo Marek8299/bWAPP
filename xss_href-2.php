@@ -146,18 +146,18 @@ function hpp($data)
 
     $sql = "SELECT * FROM movies";
 
-    $recordset = mysql_query($sql, $link);
+    $recordset = mysqli_query($sql, $link);
 
     if(!$recordset)
     {
 
-        // die("Error: " . mysql_error());
+        // die("Error: " . mysqli_error());
 
 ?>
 
         <tr height="50">
 
-            <td colspan="5" width="580"><?php die("Error: " . mysql_error()); ?></td>
+            <td colspan="5" width="580"><?php die("Error: " . mysqli_error()); ?></td>
             <!--
             <td></td>
             <td></td>
@@ -170,10 +170,10 @@ function hpp($data)
 
     }
 
-    if(mysql_num_rows($recordset) != 0)
+    if(mysqli_num_rows($recordset) != 0)
     {    
 
-        while($row = mysql_fetch_array($recordset))         
+        while($row = mysqli_fetch_array($recordset))         
         {
 
             // print_r($row);
@@ -195,7 +195,7 @@ function hpp($data)
 
     }
     
-    mysql_close($link);
+    mysqli_close($link);
 
 ?>
 
