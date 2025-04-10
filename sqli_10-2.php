@@ -64,7 +64,7 @@ if(!empty($_GET["title"]))
     $sql = "SELECT * FROM movies WHERE title LIKE '%" . sqli($title) . "%'";
 
     // Queries the database
-    $recordset = mysqli_query($sql, $link);
+    $recordset = mysqli_query($link, $sql);
 
     // Fetches the result
     if(mysqli_num_rows($recordset) != 0)

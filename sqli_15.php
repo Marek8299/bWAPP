@@ -64,7 +64,7 @@ if(isset($_REQUEST["title"]))
 
     $sql = "SELECT * FROM movies WHERE title = '" . sqli($title) . "'";
 
-    $recordset = mysqli_query($sql, $link);
+    $recordset = mysqli_query($link, $sql);
 
     if($recordset and mysqli_num_rows($recordset) != 0)
     {
@@ -77,7 +77,7 @@ if(isset($_REQUEST["title"]))
 
         $sql = "SELECT email FROM users WHERE login = '" . $login . "'";
 
-        $recordset = mysqli_query($sql, $link);
+        $recordset = mysqli_query($link, $sql);
 
         $row = mysqli_fetch_array($recordset);
 

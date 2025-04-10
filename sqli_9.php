@@ -180,7 +180,7 @@ if(isset($_GET["title"]))
 
     $sql = "SELECT * FROM movies WHERE title LIKE '%" . sqli($title) . "%'";
 
-    $recordset = mysqli_query($sql, $link);
+    $recordset = mysqli_query($link, $sql);
 
     if(!$recordset)
     {

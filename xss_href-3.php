@@ -46,7 +46,7 @@ if(isset($_GET["name"]) && isset($_GET["movie"]) && isset($_GET["action"]) && $_
 
         $sql = "SELECT * FROM movies WHERE id = '" . sqli_check_3($link, $movie) . "'";
 
-        $recordset = mysqli_query($sql, $link);
+        $recordset = mysqli_query($link, $sql);
 
         if(!$recordset)
         {

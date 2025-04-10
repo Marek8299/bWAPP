@@ -34,7 +34,7 @@ if($_COOKIE["security_level"] == "2")
 // Selects all the records
 $sql = "SELECT * FROM movies";
 
-$recordset = mysqli_query($sql, $link);  
+$recordset = mysqli_query($link, $sql);  
 
 function sqli($data)
 {
@@ -174,7 +174,7 @@ if(isset($_GET["movie"]))
 
     }
 
-    $recordset = mysqli_query($sql, $link);
+    $recordset = mysqli_query($link, $sql);
 
     if(!$recordset)
     {

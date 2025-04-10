@@ -130,7 +130,7 @@ function sqli($data)
 
         $sql = "SELECT * FROM movies WHERE title = '" . sqli($title) . "'";
 
-        $recordset = mysqli_query($sql, $link);
+        $recordset = mysqli_query($link, $sql);
 
         if(!$recordset)
         {

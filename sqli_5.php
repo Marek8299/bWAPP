@@ -120,7 +120,7 @@ function sqli($data)
             // Selects all the records
             $sql = "SELECT * FROM movies";
 
-            $recordset = mysqli_query($sql, $link);
+            $recordset = mysqli_query($link, $sql);
 
             // Fills the 'select' object
             while($row = mysqli_fetch_array($recordset))

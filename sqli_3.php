@@ -141,7 +141,7 @@ function sqli($data)
 
         // echo $sql;
 
-        $recordset = mysqli_query($sql, $link);
+        $recordset = mysqli_query($link, $sql);
 
         if(!$recordset)
         {
