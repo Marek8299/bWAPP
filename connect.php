@@ -33,7 +33,7 @@ if(!$link)
 }
 
 // Connects to the database
-$database = mysqli_select_db($database, $link);
+$database = mysqli_select_db($link, $database);
 
 // Checks the connection
 if(!$database)
